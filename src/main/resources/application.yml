@@ -1,0 +1,16 @@
+server:
+  port: 8000
+
+spring:
+  datasource:
+    driver-class-name: com.facebook.presto.jdbc.PrestoDriver
+    #driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:presto://10.1.222.30:20080/hive/default?user=root
+    #url: jdbc:mysql://127.0.0.1:3306/test
+    hikari:
+      connection-test-query: select 1
+      minimum-idle: 10
+      maximum-pool-size: 100
+      pool-name: presto
+      max-lifetime: 1800000
+      destroy-method: shutdown

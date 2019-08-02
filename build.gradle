@@ -1,0 +1,53 @@
+plugins {
+    id 'org.springframework.boot' version '2.1.6.RELEASE'
+    id 'java'
+}
+
+apply plugin: 'io.spring.dependency-management'
+apply plugin: 'java'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'maven'
+
+
+group = 'com.lx'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
+repositories {
+    mavenCentral()
+    maven { url "http://10.1.220.235:9091/repository/maven-public/" }
+    maven { url "http://maven.aliyun.com/nexus/content/groups/public/" }
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-jdbc'
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+    compile('io.springfox:springfox-swagger2:2.9.2')
+    compile('io.springfox:springfox-swagger-ui:2.9.2')
+    compile('com.github.xiaoymin:swagger-bootstrap-ui:1.9.1')
+    compile('commons-beanutils:commons-beanutils:1.9.3')
+    compile('com.cloudera:ImpalaJDBC41:2.6.4')
+    compile('com.alibaba:druid:1.1.10')
+    //compile('mysql:mysql-connector-java:5.1.47')
+    compile('com.facebook.presto:presto-jdbc:0.223')
+
+
+
+
+/*    compile('org.apache.hive:hive-jdbc:2.1.1'){
+        exclude(module: ':slf4j-api')
+    }*/
+}
+jar {
+    enabled = true
+}
