@@ -22,6 +22,7 @@ public class ImpalaJdbcUtil {
     private static Connection conn = null;
     private static Statement stmt = null;
     private static ResultSet rs = null;
+
     static {
         try {
             //加载驱动
@@ -74,7 +75,7 @@ public class ImpalaJdbcUtil {
                 for(int i=0;i<cls;i++) {
                     Object obj = rs.getObject(i+1);
                     //valMap.put(cname, obj);
-	                System.out.println("---"+obj.toString());
+	                //System.out.println("---"+obj.toString());
                     tlist.add(obj);
                 }
                 reList.add(tlist);
@@ -90,11 +91,11 @@ public class ImpalaJdbcUtil {
     }
 
     public static void main(String[] args) throws Exception {
-        String sql = "select * from dws.dws_base_house where dt = '201907311556' order by id limit 10";
+        String sql = "select * from dws.dws_base_house where dt = '201908152352' order by id limit 10";
         Map<String,Object> map = executeQuery(sql);
 	    List<List<Object>> reList = (List<List<Object>>)map.get("list");
 	    for (int i = 0; i < reList.size(); i++) {
-		    System.out.println(reList.get(i));
+		    System.out.println(reList.get(i).toString());
 	    }
 	    System.out.println("----121=="+map.size());
     }

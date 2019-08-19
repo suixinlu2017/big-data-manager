@@ -5,6 +5,7 @@ import com.lx.bigdatamanager.model.dto.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Repository;
 import java.util.Date;
@@ -46,12 +47,15 @@ public class UserDaoImpl implements UserDao {
 	//这个是系统自带的
 	@Override
 	public User getUserById(Integer id) {
-		String sql = "select * from tb_user where id = " + id;
-		List<Map<String, Object>> mapList = jdbcTemplate.queryForList(sql);
+		String sql = "select * from tb_user where id = ?";
+		RowMapper<User> rowMapper= new BeanPropertyRowMapper<>(User.class);
+		User user = jdbcTemplate.queryForObject(sql,rowMapper,id);
+		System.out.println("===user=="+user.toString());
+		/*List<Map<String, Object>> mapList = jdbcTemplate.queryForList(sql);
 		for (int i = 0; i < mapList.size(); i++) {
 			Map<String, Object> map = mapList.get(i);
 			System.out.println(map.toString());
-		}
+		}*/
 		/*List<User> list = jdbcTemplate.query("select * from tb_user where id = ?", new Object[]{id}, new BeanPropertyRowMapper(User.class));
 		if(list!=null && list.size()>0){
 			return list.get(0);

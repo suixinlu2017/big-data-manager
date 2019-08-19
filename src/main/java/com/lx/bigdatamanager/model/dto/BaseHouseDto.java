@@ -10,29 +10,29 @@ import lombok.Data;
  **/
 @Data
 public class BaseHouseDto {
-	private long id;
+	private Long id;
 	private String code;
 	private String name;
 	private String area_code;
 	private String regist_name;
 	private String house_aliasname;
 	private String address;
-	private int limit_year;
-	private double longitude;
-	private double latitude;
-	private int titude_type;
-	private int approve_status;
+	private Integer limit_year;
+	private Double longitude;
+	private Double latitude;
+	private Integer titude_type;
+	private Integer approve_status;
 	private String approve_desc;
-	private long create_date;
-	private long create_id;
-	private long update_date;
-	private long update_id;
-	private int delete_flag;
+	private Long create_date;
+	private Long create_id;
+	private Long update_date;
+	private Long update_id;
+	private Integer delete_flag;
 	private String remark;
 	private String source;
 	private String source_url;
-	private int combined_flag;
-	private long fixid;
+	private Integer combined_flag;
+	private Long fixid;
 	private String fixcode;
-	private int type;
+	private Integer type;
 }

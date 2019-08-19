@@ -24,7 +24,7 @@ import java.util.List;
 @Slf4j
 @RestController
 @RequestMapping(value = "/user", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-@Api(value = "大数据后台controller", tags = {"manager楼盘大数据"})
+@Api(value = "用户测试", tags = {"大数据架构测试"})
 public class UserController {
 
     @Autowired
