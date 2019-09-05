@@ -1,16 +1,18 @@
-package com.lx.bigdatamanager.model.dto;
+package com.lx.bigdatamanager.model.vo;
 
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
+import java.util.Date;
+
 /**
- * @program: bigdata-admin
- * @description: 楼盘对象
+ * @program: big-data-manager
+ * @description: 楼盘可视化对象
  * @author: chenyulong
- * @create: 2019-08-01 09:30
+ * @create: 2019-08-19 16:16
  **/
 @Data
-public class BaseHouseDto {
+public class BaseHouseVo {
 	@ApiModelProperty(value = "楼盘ID")
 	private Long id;
 	@ApiModelProperty(value = "楼盘编号")
@@ -38,11 +40,11 @@ public class BaseHouseDto {
 	@ApiModelProperty(value = "审批描述")
 	private String approve_desc;
 	@ApiModelProperty(value = "创建时间")
-	private Long create_date;
+	private Date create_date;
 	@ApiModelProperty(value = "创建人")
 	private Long create_id;
 	@ApiModelProperty(value = "更新时间")
-	private Long update_date;
+	private Date update_date;
 	@ApiModelProperty(value = "修改人")
 	private Long update_id;
 	@ApiModelProperty(value = "删除标识(0:有效,1:无效)")
